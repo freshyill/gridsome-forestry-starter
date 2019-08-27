@@ -1,7 +1,7 @@
 ---
 section: Students
 content_type: Event
-location: []
+location: projects/chelsea-landmark.md
 title: This is the title
 on-page_title: This is the on-page title
 subtitle: A nice subtitle
