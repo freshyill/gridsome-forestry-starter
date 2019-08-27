@@ -1,4 +1,15 @@
 ---
 label: Location
 hide_body: false
-fields: []
+fields:
+- name: room
+  type: text
+  config:
+    required: true
+  label: Room
+  description: The room the event is being held in, e.g. "Room 102" or "Main Ballroom"
+- name: venue
+  type: text
+  config:
+    required: true
+  label: Venue
