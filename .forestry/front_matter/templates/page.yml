@@ -132,3 +132,5 @@ fields:
   showOnly:
     field: content_type
     value: Event
+pages:
+- content/pages/this-is-the-title.md
