@@ -1,4 +1,134 @@
 ---
 label: Page
 hide_body: false
-fields: []
+fields:
+- name: title
+  type: text
+  config:
+    required: true
+  label: Title
+  description: Determines the URL path e.g., /[site-section]/[title]"
+- name: on-page_title
+  type: text
+  config:
+    required: false
+  label: On-page title
+  description: Overrides the title on the page, but does not affect the URL
+- name: subtitle
+  type: text
+  config:
+    required: false
+  label: Subtitle
+  description: Displays below the title. Simple HTML for text formatting is allowed.
+- name: description
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Description
+- name: section
+  type: select
+  default: Program
+  config:
+    required: true
+    options:
+    - Program
+    - Presenters
+    - Students
+    - Travel
+    - About
+    - Redirect
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Site Section
+  description: Determines the URL path e.g., /[site-section]/[title]
+- name: content_type
+  type: select
+  default: Page
+  config:
+    required: true
+    options:
+    - Page
+    - Event
+    - Session
+    - Redirect
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Content Type
+  description: What type of page is this?
+- name: weight
+  type: number
+  label: Weight
+  description: ''
+  default: 0
+  required: true
+  config:
+    min: 
+    max: 
+    step: '1'
+    required: true
+- name: link
+  type: text
+  config:
+    required: true
+  label: Redirect Link
+  showOnly:
+    field: content_type
+    value: Redirect
+  description: Enter an external URL or relative path
+- name: sidebar
+  type: field_group_list
+  fields:
+  - name: heading
+    type: text
+    config:
+      required: false
+    label: Heading
+  - name: block_content
+    type: textarea
+    default: ''
+    config:
+      required: false
+      wysiwyg: true
+      schema:
+        format: markdown
+    label: Block Content
+    description: Put some sidebar text here
+  - name: highlight
+    type: boolean
+    label: Highlight
+    description: Displays this content in a box on the page
+  config:
+    min: '0'
+    max: 
+    labelField: 
+  label: Sidebar
+  description: Create a sidebar block
+  showOnly:
+    value: Page
+- name: location
+  type: select
+  default: []
+  config:
+    required: false
+    options: []
+    source:
+      type: pages
+      section: 
+      file: 
+      path: 
+  label: Location
+  description: Choose a location for this event. Locations need to be created before
+    they can be added to an event.
+  showOnly:
+    field: content_type
+    value: Event
